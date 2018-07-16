@@ -6,7 +6,7 @@ class PassPhrase
 {
 	public function validatePass($passphrase = "")
 	{
-		$message = $passphrase." is valid \n";
+		$message = $passphrase." is valid \n";		// Default return message
 		if(!empty($passphrase))
 		{
 			$pass = strtolower($passphrase);	// convert string to lower-case
@@ -17,7 +17,7 @@ class PassPhrase
 			{
 				$str = trim($item);		// Remove whitespacies
 				
-				if (isset($data[$str]))	// Check if 
+				if (isset($data[$str]))	// Check if $str is isset
 				{
 					$data[$str] += 1;
 				} else {
