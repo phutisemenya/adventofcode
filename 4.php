@@ -1,3 +1,7 @@
+<?php
+/*
+ * High-Entropy Passphrases 
+ */
 class PassPhrase
 {
 	public function validatePass($passphrase = "")
@@ -14,9 +18,14 @@ class PassPhrase
 			{
 				$str = trim($item);		// Remove whitespacies
 				
-				$word = (isset($data[$str])) ? $data[$str] += 1 : $data[$str] = 1;
+				if(isset($data[$str]))
+				{
+					$data[$str] += 1;
+				} else {
+					$data[$str] = 1;
+				}
 				
-				if ($word > 1)
+				if ($data[$str] > 1)
 				{
 					$message = $passphrase." is not valid \n";
 					break;
@@ -33,3 +42,4 @@ print $PassPhrase->validatePass("aa bb cc dd ee");
 print $PassPhrase->validatePass("aa bb cc dd aa");
 print $PassPhrase->validatePass("aa bb cc dd aaa");
 print $PassPhrase->validatePass("bdwdjjo avricm cjbmj ran lmfsom ivsof");
+?>
